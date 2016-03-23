@@ -20,8 +20,8 @@ _Documentation under Licence Creative Commons CC-BY_
   * How to Write a binary Plist 
 
 * Element encoding
-  * Basis
-  * Primitif elements
+  * [Basis](Pages/20_Encoding.md)
+  * [Primitif elements](Pages/30_Primitif.md)
     * Singleton: Null, False, True, Fill
     * URL
     * Numbers: Integer, [size], Real
@@ -30,7 +30,8 @@ _Documentation under Licence Creative Commons CC-BY_
     * Date
     * Binary Data
     * String: Single byte string, Byte string
-  * Non-primitif elements
+  * [Non-primitif elements](Pages/40_Non-Primitif.md)
+    * Dictionnary
     * Array
     * Set / Order Set
     * Dictionnary
