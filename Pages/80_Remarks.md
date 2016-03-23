@@ -1,9 +1,6 @@
 5. Remarks
 =============
 
-Le format bin 00 utilise un système de référence pour minimiser la taille des fichiers.
+Binary plist use a system of references to minimize size of file. Indeed two élémets which has of the same subelements value can point a single subelement in binary file.
 
-On doit pouvoir créer des boucles  
- - peut etre que ca fait planter la lecture???  
- - la conversion vers d'autre format est impossible  
-
+It should be possible to create a loop with elements elementA -> elementB -> elementA
