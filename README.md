@@ -9,7 +9,7 @@ _Documentation under Licence Creative Commons CC-BY_
 
 ##### Summary
 
-* Parts of a binary Plist
+* [Sections of a binary](Pages/10_Sections.md)
   * Header
   * Trailler
   * Elements
