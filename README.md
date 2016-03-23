@@ -35,8 +35,8 @@ _Documentation under Licence Creative Commons CC-BY_
     * Array
     * Set / Order Set
 
-* [Binary plist v15](Pages/bplist15.md)
-* [Evolutions](Pages/70_Evolutions_in_MacOSX.md)
+* [Binary plist v15](Pages/50_bplist15.md)
+* [Evolutions](Pages/70_Evolutions.md)
 * [Remarks](80_Remarks.md)
 * [Usefull tools for developers](Pages/90_Tools.md)
 * [Sources](Pages/95_Sources.md)
