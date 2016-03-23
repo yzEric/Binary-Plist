@@ -1,4 +1,4 @@
-##1 Main parts of a file
+## Main parts of a file
 
 Part         | Description
 ------------ | ------------------------------
@@ -10,7 +10,7 @@ Trailer      | 32 bytes: give size of numbers (offset…)
 
 
 
-##1.1 Header
+### Header
 The first 8 bytes are an identifier, equal to 'bplistXX' where XX is two digits. 'bplist00' and 'bplist01' are known, I don't know the differences (it seems that all sources CFfiles write 00).
 
 	magic number ("bplist")
@@ -25,7 +25,7 @@ The first 8 bytes are an identifier, equal to 'bplistXX' where XX is two digits.
 *So for compatibility, if you try to wrire a plist file, it is probably better to always use bplist00*
 
 
-##1.2 Data
+### Data
 Second parts of the file is composed of all of the elements in the plist, encoded and concatenated.
 Non primivite Elements like array and dictonnary that refer to other elements indicate the index of these elements in the offset table.
 
@@ -37,13 +37,13 @@ it can be very slow for non primitif element, so apple use it at write only for 
 
 
 
-##1.3 Offset table
+### Offset table
 Third is the offset table, it's a concatenation of the offsets of all of the elements in the plist, each offset given as an unsigned integer in a fixed number of bytes. A non primitif object in the plist has a reference number that is based on the 0-based indexing of this table, e.g. object number 0 is the object at the offset given first in this table.
 
 It also permite to skip part of document by jumping elements of a non primitive type item.
 
 
-##1.4 Trailer
+### Trailer
 
 
 The final 32 bytes of a binary plist file have the following format:
@@ -95,7 +95,7 @@ Offset of offset table                       | 24     | 8       | 64-bit unsigne
      offset table, named above as the third element in a binary plist.
      
 
-###2 How to Read 
+### How to Read 
 
  * Read header : check magic number and version
  * Jump to trailer an reade it
@@ -104,7 +104,7 @@ Offset of offset table                       | 24     | 8       | 64-bit unsigne
  * Read of top level element can strat, it must be a non primitif element
 
 
-###3 How to write 
+### How to write 
 In input, the master element that contain data structure to store in plist file
 
  * Write the header  

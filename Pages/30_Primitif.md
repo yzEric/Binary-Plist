@@ -1,26 +1,26 @@
-3.1 Singleton
----------
+### Singleton
 
 The most easy object to write and parse, slightly different from the other type.
 
 Type number 0000 (0x0), the object length is actually the value of the object, they always use only 1 bytes.
 
-  __3.1.1 null: 0000 0000__   
-	I don't know what null is for.
 
-  __3.1.2 False: 0000 1000__  
+  __null: 0000 0000__   
+	
+
+  __False: 0000 1000__  
 	Boolean value
 
-  __3.1.3 True: 0000 1001__  
+  __True: 0000 1001__  
 	Boolean value
 
-  __3.1.2 fill: 0000 1110__   
-	fill byte, I don't know what fill is for.
+  __fill: 0000 1110__   
+	fill byte
 
 
-3.2 URL
--------
-Apparition de la balise dans V10.8
+### URL
+
+This type appeared with Mac OS X v10.8
 Not implemented yet by apple in Core Foudation
 
 _Extract of CF source file_
@@ -32,27 +32,27 @@ _Extract of CF source file_
  
   
   
-3.3 Number
------------
+### Number
+
 Integer, [size], UID, UUID, and real have an analogue structure:  
 
 
 
-__3.3.1 Integer: 0001 0nnn__  
+__Integer: 0001 0nnn__  
 *4 bits for ID + 0nnn for legth + # of bytes is 2^nnn for integer, big-endian bytes data (big-endian bytes)*  
 
 
 
-0nnn  | 10 base  |  Length in bytes  | Type
-------|----------|-------------------|----------------------|
-0000  |      0   |     1             |     8bits unsigned   |
-0001  |      1   |     2             |    16bits unsigned   |
-0010  |      2   |     4             |    32bits unsigned   |
-0011  |      3   |     8             |    64bits unsigned   |
-0100  |      4   |    16             |   128bits signed     |
-0101  |      5   |    32             |   256bits signed     |
-0110  |      6   |    64             |   512bits signed     |
-0111  |      7   |   128             | 1 024bits signed     |
+0nnn  | 10 base  |  Len. in bytes  |                      -|
+------|---------:|----------------:|----------------------:|
+0000  |      0   |     1           |     8 bits unsigned   |
+0001  |      1   |     2           |    16 bits unsigned   |
+0010  |      2   |     4           |    32 bits unsigned   |
+0011  |      3   |     8           |    64 bits unsigned   |
+0100  |      4   |    16           |   128 bits signed     |
+0101  |      5   |    32           |   256 bits signed     |
+0110  |      6   |    64           |   512 bits signed     |
+0111  |      7   |   128           | 1 024 bits signed     |
 
 
 	1, 2, and 4-byte integers have to be interpreted as unsigned
@@ -87,15 +87,15 @@ En effet, dans son implémentation apple se limite à toujours utilisé 1, 2, 4,
 (On pourait même se comptenter de 2 bits en changeant la règle des longueurs, 0000: 1 byte - 0001: 2 byte - 0010: 4 byte - 0011: 8: byte)
 
 
-</br>
-###3.3.2 [size]: 0001 0nnn  
+
+### [size]: 0001 0nnn  
 This object have the same ID as integer, [size] is only use to express an element length superior to 15.
 Encoding is as integers, except values are always unsigned. 
  
  
   
 
-###3.3.5 Real: 0010 0nnn  
+### Real: 0010 0nnn  
 *4 bits for ID + 0nnn + # of bytes is 2^nnn for real data (big-endian bytes)*
 Since Mac OS X.8 number of bytes that can be use has reduce to 3, frist must be 0.
 	The object length to byte length conversion is the same as for integers. 
@@ -103,7 +103,7 @@ Since Mac OS X.8 number of bytes that can be use has reduce to 3, frist must be 
     The encoding is as a big-endian, single-precision or a double-precision float,
     accordingly.
 
-    `a vérifer dans les sources CF`
+`Need to be verify in sources CF`
 
 
 0nnn  | 10 base  |  Length in bytes  |   Name
@@ -120,8 +120,7 @@ Since Mac OS X.8 number of bytes that can be use has reduce to 3, frist must be 
 
 
 
-3.4 UID: 1000 0nnn  
--------------
+### UID: 1000 0nnn  
 *4 bits for ID + 0nnn + nnnn+1 is # of bytes for UID, big-endian bytes data (big-endian bytes)*  
 Encoding is as integers, except values are always unsigned.  
 
@@ -130,8 +129,8 @@ They are use to indentify and find objects in programmes.
 
 
 
-3.5 UUID: 0000 1110  
--------------
+### UUID: 0000 1110  
+
 *4 bits for ID + 1110 (=16) + 16 bytes for UUID data (big-endian bytes)*
 
 Apparition de la balise dans V10.8
@@ -153,7 +152,7 @@ UUIDs (Universally Unique Identifiers), also known as GUIDs (Globally Unique Ide
 
 
 
-###3.6 Date
+### Date
 
 0011 0011 + 8byte
 
@@ -163,26 +162,26 @@ except that the object length is always 3, for a byte length of 8.
 
 
 
-###3.7 Binary Data
+### Binary Data
 
 
 0100 nnnn + [size] + ..
 
-The byte length is the object length, and any value is valid. The bytes are 
-not interpreted.
+The byte length is the object length, and any value is valid.
+The bytes are not interpreted.
 
 
 
-###3.8 String
+### String
 
 
-####3.8.1 Single Byte String  
+#### Single Byte String  
 
 The byte length is the object length, and any value is valid.
 Encoding is ASCII.
 
 
-####3.8.2 Byte String  
+#### Byte String  
 
 The byte length is twice the object length, and any value is valid.
 The encoding is utf-16 (big endian).
