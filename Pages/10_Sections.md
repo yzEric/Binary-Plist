@@ -52,14 +52,14 @@ The final 32 bytes of a binary plist file have the following format:
 A simple table looks like this:
 
 Data                                         | Offset | Length  | Data structure
--------------------------------------------- | ------ | --------| -------------
+:------------------------------------------- | ------ | --------| -------------
 Unused                                       | 0      | 6       | 48-bit
 byte size of offset ints in offset table     | 6      | 1       | 8-bit unsigned integer
 byte size of object refs in arrays and dicts | 7      | 1       | 8-bit unsigned integer
 Number of objects                            | 8      | 8       | 64-bit unsigned integer
 Top level object index in offset table       | 16     | 8       | 64-bit unsigned big endian integer
 Offset of offset table                       | 24     | 8       | 64-bit unsigned big endian integer
-<!--Sum                                      | 32     | 32      | 256-bit-->
+_Sum_                                        |        | _32_    | _256-bit_
 
 
  
@@ -95,21 +95,5 @@ Offset of offset table                       | 24     | 8       | 64-bit unsigne
      offset table, named above as the third element in a binary plist.
      
 
-### How to Read 
 
- * Read header : check magic number and version
- * Jump to trailer an reade it
- * Move to offset table at index of top level  element indicate in trailler
- * Read offset of top level element move to this position
- * Read of top level element can strat, it must be a non primitif element
-
-
-### How to write 
-In input, the master element that contain data structure to store in plist file
-
- * Write the header  
- * Give a unique index to each element of the structure, element who have same value must have the same index excepting singletons  
- * Write data of elements  
- * Write offset table  
- * Write trailler
 

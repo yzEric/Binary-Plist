@@ -16,9 +16,6 @@ _Documentation under Licence Creative Commons CC-BY_
   * Offset table
   * Trailler  
 
-  * How to Read a binary Plist 
-  * How to Write a binary Plist 
-
 * Element encoding
   * [Basis](Pages/20_Encoding.md)
   * [Primitif elements](Pages/30_Primitif.md)
@@ -34,6 +31,11 @@ _Documentation under Licence Creative Commons CC-BY_
     * Dictionnary
     * Array
     * Set / Order Set
+    
+* [Put into practice](Pages/45_Practice.md)
+  * How to Read a binary Plist 
+  * How to Write a binary Plist 
+  * Example
 
 * [Binary plist v15](Pages/50_bplist15.md)
 * [Evolutions](Pages/70_Evolutions.md)
