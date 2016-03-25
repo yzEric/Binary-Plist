@@ -12,7 +12,6 @@ Summary
 
 * [Sections of a binary](Pages/10_Sections.md)
   * Header
-  * Trailler
   * Elements
   * Offset table
   * Trailler  
@@ -31,12 +30,14 @@ Summary
   * [Non-primitif elements](Pages/40_Non-Primitif.md)
     * Dictionnary
     * Array
-    * Set / Order Set
+    * Set
+    * Order Set
     
-* [Put into practice](Pages/45_Practice.md)
+* [Into practice](Pages/45_Practice.md)
+  * Example
   * How to Read a binary Plist 
   * How to Write a binary Plist 
-  * Example
+
 
 * [Binary plist v15](Pages/50_bplist15.md)
 * [Evolutions](Pages/70_Evolutions.md)
