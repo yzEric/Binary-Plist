@@ -1,4 +1,4 @@
-##1.2 plist15
+# - bplist15 -
 
 
 
@@ -10,7 +10,8 @@ Binary plist file has only two sections:
 
 
 
-###1.2.1 Header
+Header
+----
 The first 8 bytes are an identifier, equal to 'bplist15'
 
 	magic number ("bplist")
@@ -23,11 +24,13 @@ byte length of plist incl. header, an encoded int number object (as below)
 
 
 
-###1.2.2 Data
+Data
+----
 Second is all of the elements in the plist, encoded and concatenated.
 
 
-###1.2.3 How to Read 
+How to Read 
+----
  * Read Header
      - check magic number
      - check version
@@ -35,7 +38,8 @@ Second is all of the elements in the plist, encoded and concatenated.
  * Read Data
  
 
-###1.2.4 How to write 
+How to write 
+----
  * Write magic number
  * Write version
  * Write No CRC
@@ -44,7 +48,8 @@ Second is all of the elements in the plist, encoded and concatenated.
 
 
 
-###3.11.2 bplist15 Dictionnary  
+bplist15 Dictionnary  
+----
 Length is the number of pair of key;value store in dictonnary
 
     DictFlag length [size] PrimitifObjectKey1 PrimitifObjectKey2 . . . PrimitifObjectKeyN    Object1 Object2 . . . ObjectN

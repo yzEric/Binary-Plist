@@ -1,4 +1,4 @@
-## Main parts of a file
+# - Main parts of a file -
 
 Part         | Description
 ------------ | ------------------------------
@@ -9,8 +9,9 @@ Trailer      | 32 bytes: give size of numbers (offset…)
 
 
 
-
-### Header
+</br>
+Header
+----
 The first 8 bytes are an identifier, equal to 'bplistXX' where XX is two digits. 'bplist00' and 'bplist01' are known, I don't know the differences (it seems that all sources CFfiles write 00).
 
 	magic number ("bplist")
@@ -24,8 +25,9 @@ The first 8 bytes are an identifier, equal to 'bplistXX' where XX is two digits.
 
 *So for compatibility, if you try to wrire a plist file, it is probably better to always use bplist00*
 
-
-### Data
+</br>
+Data
+----
 Second parts of the file is composed of all of the elements in the plist, encoded and concatenated.
 Non primivite Elements like array and dictonnary that refer to other elements indicate the index of these elements in the offset table.
 
@@ -36,15 +38,17 @@ When writing a binary plist file, any values that repeat within the file can  be
 it can be very slow for non primitif element, so apple use it at write only for primitif element.
 
 
-
-### Offset table
+</br>
+Offset table
+----
 Third is the offset table, it's a concatenation of the offsets of all of the elements in the plist, each offset given as an unsigned integer in a fixed number of bytes. A non primitif object in the plist has a reference number that is based on the 0-based indexing of this table, e.g. object number 0 is the object at the offset given first in this table.
 
 It also permite to skip part of document by jumping elements of a non primitive type item.
 
 
-### Trailer
-
+</br>
+Trailer
+----
 
 The final 32 bytes of a binary plist file have the following format:
 

@@ -1,4 +1,7 @@
-### Singleton
+# - Primitif type -
+
+Singleton
+----
 
 The most easy object to write and parse, slightly different from the other type.
 
@@ -18,7 +21,8 @@ Type number 0000 (0x0), the object length is actually the value of the object, t
 	fill byte
 
 
-### URL
+URL
+----
 
 This type appeared with Mac OS X v10.8
 Not implemented yet by apple in Core Foudation
@@ -32,13 +36,13 @@ _Extract of CF source file_
  
   
   
-### Number
-
+Number
+----
 Integer, [size], UID, UUID, and real have an analogue structure:  
 
 
 
-__Integer: 0001 0nnn__  
+#### ➤ Integer: 0001 0nnn
 *4 bits for ID + 0nnn for legth + # of bytes is 2^nnn for integer, big-endian bytes data (big-endian bytes)*  
 
 
@@ -88,14 +92,14 @@ En effet, dans son implémentation apple se limite à toujours utilisé 1, 2, 4,
 
 
 
-### [size]: 0001 0nnn  
+#### ➤ [size]: 0001 0nnn  
 This object have the same ID as integer, [size] is only use to express an element length superior to 15.
 Encoding is as integers, except values are always unsigned. 
  
  
   
 
-### Real: 0010 0nnn  
+#### ➤ Real: 0010 0nnn  
 *4 bits for ID + 0nnn + # of bytes is 2^nnn for real data (big-endian bytes)*
 Since Mac OS X.8 number of bytes that can be use has reduce to 3, frist must be 0.
 	The object length to byte length conversion is the same as for integers. 
@@ -120,7 +124,8 @@ Since Mac OS X.8 number of bytes that can be use has reduce to 3, frist must be 
 
 
 
-### UID: 1000 0nnn  
+UID: 1000 0nnn  
+----
 *4 bits for ID + 0nnn + nnnn+1 is # of bytes for UID, big-endian bytes data (big-endian bytes)*  
 Encoding is as integers, except values are always unsigned.  
 
@@ -129,7 +134,8 @@ They are use to indentify and find objects in programmes.
 
 
 
-### UUID: 0000 1110  
+UUID: 0000 1110  
+----
 
 *4 bits for ID + 1110 (=16) + 16 bytes for UUID data (big-endian bytes)*
 
@@ -152,7 +158,8 @@ UUIDs (Universally Unique Identifiers), also known as GUIDs (Globally Unique Ide
 
 
 
-### Date
+Date
+----
 
 0011 0011 + 8byte
 
@@ -162,8 +169,8 @@ except that the object length is always 3, for a byte length of 8.
 
 
 
-### Binary Data
-
+Binary Data
+----
 
 0100 nnnn + [size] + ..
 
@@ -172,16 +179,16 @@ The bytes are not interpreted.
 
 
 
-### String
+String
+----
 
-
-#### Single Byte String  
+#### ➤ Single Byte String  
 
 The byte length is the object length, and any value is valid.
 Encoding is ASCII.
 
 
-#### Byte String  
+#### ➤ Byte String  
 
 The byte length is twice the object length, and any value is valid.
 The encoding is utf-16 (big endian).

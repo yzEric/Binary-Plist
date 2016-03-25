@@ -7,7 +7,8 @@ The missing documentation
 _Documentation under Licence Creative Commons CC-BY_
 
 
-##### Summary
+Summary
+----
 
 * [Sections of a binary](Pages/10_Sections.md)
   * Header
