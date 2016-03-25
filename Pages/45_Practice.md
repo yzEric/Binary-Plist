@@ -1,36 +1,20 @@
+# - Example -
 
-## How to Read 
+This part illustrate how read and write a plist file
 
- * Read header : check magic number and version
- * Jump to trailer an reade it
- * Move to offset table at index of top level  element indicate in trailler
- * Read offset of top level element move to this position
- * Read of top level element can strat, it must be a non primitif element
+Content of the demo file
+----
 
-
-## How to write 
-In input, the master element that contain data structure to store in plist file
-
- * Write the header  
- * Give a unique index to each element of the structure, element who have same value must have the same index excepting singletons  
- * Write data of elements  
- * Write offset table  
- * Write trailler
+```
+  Root
+    Dictionnary
+      Key: ID   / Value: 100
+      Key: Name / Value: abcde
+```
 
 
-
-## Example
-
-#### Content
-* Root
-  * Dictionnary
-    * key: ID   / Value: 100
-    * key: Name / Value: abcde
-
-
-
-#### Plist file in XML format
-Pretty easy to read and understand   
+</br>
+_If you are familar to xml Plist:_  
 
 ```
 <plist version="1.0">
@@ -44,19 +28,47 @@ Pretty easy to read and understand
 ```
 
 
-#### Plist file in biary format
-
-**File in a hex editor:**
-
-![exemple-b](https://raw.githubusercontent.com/yzEric/Binary-Plist/master/Ressources/exemple-0b.png)
 
 </br>
-**File in a hex editor with data highlight:**
 
-![exemple-a](https://raw.githubusercontent.com/yzEric/Binary-Plist/master/Ressources/exemple-0a.png)
+Binary file in a hex editor:
+----
+The figure below shows the file data in a hexadecimal editor.
+
+
+(https://raw.githubusercontent.com/yzEric/Binary-Plist/master/Ressources/exemple-0b.png)
+
+
+Fisrt bytes (bplist00) show that it is a Plist binary file, the text is aissement identifiable, however the rest is relatively difficult to identify.
+
+| _Figure 1: Hex Data_     |
+| :----------------------: |
+| ![exemple-b]             |
+
+
+
+[exemple-b]: https://raw.githubusercontent.com/yzEric/Binary-Plist/master/Ressources/exemple-0b.png
+
+
 
 </br>
-**Content of files:**
+Binary file in a hex editor with data highlight:
+----
+The figures below show the file data in Synalyze It! Pro with a plist grammar.   
+
+| _Figure 2: Hex Data in Synalyze It_     |
+| :-------------------------------------: |
+| ![exemple-a]                            |
+| ![exemple-c]                            |
+
+[exemple-a]: https://raw.githubusercontent.com/yzEric/Binary-Plist/master/Ressources/exemple-0a.png
+
+[exemple-c]: https://raw.githubusercontent.com/yzEric/Binary-Plist/master/Ressources/exemple-0c.png
+
+</br>
+Content of files:
+----
+The table below gives details of each file elements
 
 Offset | Hex               | Value     | Description
 ------:|-----------------: |----------:|-------------------
@@ -66,7 +78,7 @@ Offset | Hex               | Value     | Description
      9 |                01 |         1 |  _index of key A_
     10 |                02 |         2 |  _index of key B_
     11 |                03 |         3 |  _index of item for key-A_
-    12 |                04 |         4 |  _index of item for of key-B_
+    12 |                04 |         4 |  _index of item for key-B_
     13 |                54 | 0101 0100 | String, 4 chars
     14 |       6E 61 6D 65 |      name |  _value_
     18 |                52 | 0101 0010 | String, 2 chars
@@ -86,6 +98,29 @@ Offset | Hex               | Value     | Description
     44 | 00000000 00000005 |         5 | Number of items
     50 | 00000000 00000000 |         0 | Index of the top level item
     58 | 00000000 0000001D |        29 | Offset of the offset table 
+
+
+
+
+
+
+## How to Read 
+
+ * Read header : check magic number and version
+ * Jump to trailer an reade it
+ * Move to offset table at index of top level  element indicate in trailler
+ * Read offset of top level element move to this position
+ * Read of top level element can strat, it must be a non primitif element
+
+
+## How to write 
+In input, the master element that contain data structure to store in plist file
+
+ * Write the header  
+ * Give a unique index to each element of the structure, element who have same value must have the same index excepting singletons  
+ * Write data of elements  
+ * Write offset table  
+ * Write trailler
 
 
 
